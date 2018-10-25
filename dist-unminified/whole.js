@@ -1,9 +1,9 @@
 
-var Module = (function() {
+var FastSound = (function() {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
   return (
-function(Module) {
-  Module = Module || {};
+function(FastSound) {
+  FastSound = FastSound || {};
 
 // Copyright 2010 The Emscripten Authors.  All rights reserved.
 // Emscripten is available under two separate licenses, the MIT license and the
@@ -23,7 +23,7 @@ function(Module) {
 // after the generated code, you will need to define   var Module = {};
 // before the code. Then that object will be used in the code, and you
 // can continue to use Module afterwards as well.
-var Module = typeof Module !== 'undefined' ? Module : {};
+var Module = typeof FastSound !== 'undefined' ? FastSound : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
@@ -1650,7 +1650,7 @@ var ASM_CONSTS = [];
 
 STATIC_BASE = GLOBAL_BASE;
 
-STATICTOP = STATIC_BASE + 51344;
+STATICTOP = STATIC_BASE + 52064;
 /* global initializers */  __ATINIT__.push();
 
 
@@ -1659,7 +1659,7 @@ STATICTOP = STATIC_BASE + 51344;
 
 
 
-var STATIC_BUMP = 51344;
+var STATIC_BUMP = 52064;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 
@@ -1809,8 +1809,6 @@ function copyTempDouble(ptr) {
 
   var _llvm_fabs_f32=Math_abs;
 
-  var _llvm_fabs_f64=Math_abs;
-
   var _llvm_floor_f32=Math_floor;
 
   var _llvm_floor_f64=Math_floor;
@@ -1959,7 +1957,7 @@ function invoke_viiiiiii(index,a1,a2,a3,a4,a5,a6,a7) {
 
 Module.asmGlobalArg = {};
 
-Module.asmLibraryArg = { "abort": abort, "assert": assert, "enlargeMemory": enlargeMemory, "getTotalMemory": getTotalMemory, "abortOnCannotGrowMemory": abortOnCannotGrowMemory, "invoke_ii": invoke_ii, "invoke_iiii": invoke_iiii, "invoke_iiiiiii": invoke_iiiiiii, "invoke_viiiiiii": invoke_viiiiiii, "___setErrNo": ___setErrNo, "___syscall140": ___syscall140, "___syscall146": ___syscall146, "___syscall6": ___syscall6, "_abort": _abort, "_emscripten_memcpy_big": _emscripten_memcpy_big, "_llvm_cos_f64": _llvm_cos_f64, "_llvm_exp2_f32": _llvm_exp2_f32, "_llvm_exp2_f64": _llvm_exp2_f64, "_llvm_exp_f64": _llvm_exp_f64, "_llvm_fabs_f32": _llvm_fabs_f32, "_llvm_fabs_f64": _llvm_fabs_f64, "_llvm_floor_f32": _llvm_floor_f32, "_llvm_floor_f64": _llvm_floor_f64, "_llvm_log10_f32": _llvm_log10_f32, "_llvm_log10_f64": _llvm_log10_f64, "_llvm_log_f64": _llvm_log_f64, "_llvm_sin_f64": _llvm_sin_f64, "_llvm_sqrt_f32": _llvm_sqrt_f32, "_llvm_sqrt_f64": _llvm_sqrt_f64, "_llvm_stackrestore": _llvm_stackrestore, "_llvm_stacksave": _llvm_stacksave, "flush_NO_FILESYSTEM": flush_NO_FILESYSTEM, "DYNAMICTOP_PTR": DYNAMICTOP_PTR, "tempDoublePtr": tempDoublePtr, "STACKTOP": STACKTOP, "STACK_MAX": STACK_MAX };
+Module.asmLibraryArg = { "abort": abort, "assert": assert, "enlargeMemory": enlargeMemory, "getTotalMemory": getTotalMemory, "abortOnCannotGrowMemory": abortOnCannotGrowMemory, "invoke_ii": invoke_ii, "invoke_iiii": invoke_iiii, "invoke_iiiiiii": invoke_iiiiiii, "invoke_viiiiiii": invoke_viiiiiii, "___setErrNo": ___setErrNo, "___syscall140": ___syscall140, "___syscall146": ___syscall146, "___syscall6": ___syscall6, "_abort": _abort, "_emscripten_memcpy_big": _emscripten_memcpy_big, "_llvm_cos_f64": _llvm_cos_f64, "_llvm_exp2_f32": _llvm_exp2_f32, "_llvm_exp2_f64": _llvm_exp2_f64, "_llvm_exp_f64": _llvm_exp_f64, "_llvm_fabs_f32": _llvm_fabs_f32, "_llvm_floor_f32": _llvm_floor_f32, "_llvm_floor_f64": _llvm_floor_f64, "_llvm_log10_f32": _llvm_log10_f32, "_llvm_log10_f64": _llvm_log10_f64, "_llvm_log_f64": _llvm_log_f64, "_llvm_sin_f64": _llvm_sin_f64, "_llvm_sqrt_f32": _llvm_sqrt_f32, "_llvm_sqrt_f64": _llvm_sqrt_f64, "_llvm_stackrestore": _llvm_stackrestore, "_llvm_stacksave": _llvm_stacksave, "flush_NO_FILESYSTEM": flush_NO_FILESYSTEM, "DYNAMICTOP_PTR": DYNAMICTOP_PTR, "tempDoublePtr": tempDoublePtr, "STACKTOP": STACKTOP, "STACK_MAX": STACK_MAX };
 // EMSCRIPTEN_START_ASM
 var asm =Module["asm"]// EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -2239,14 +2237,14 @@ run();
 
 
 
-  return Module;
+  return FastSound;
 }
 );
 })();
 if (typeof exports === 'object' && typeof module === 'object')
-    module.exports = Module;
+    module.exports = FastSound;
   else if (typeof define === 'function' && define['amd'])
-    define([], function() { return Module; });
+    define([], function() { return FastSound; });
   else if (typeof exports === 'object')
-    exports["Module"] = Module;
+    exports["FastSound"] = FastSound;
   

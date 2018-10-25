@@ -1,6 +1,7 @@
 OUTPUT_DIR=./dist
 OUTPUT_DIR_UNMINIFIED=./dist-unminified
-EMCC_OPTS=-O3 --llvm-lto 3 --closure 1 -s NO_FILESYSTEM=1 -s MODULARIZE=1 --memory-init-file 0
+EMCC_OPTS=-O3 --llvm-lto 1 --closure 1 --memory-init-file 0 \
+	-s FILESYSTEM=0 -s MODULARIZE=1 -s EXPORT_NAME=FastSound
 EMCC_WASM_OPTS=
 EMCC_ASMJS_OPTS=-s WASM=0
 DEFAULT_EXPORTS:='_malloc','_free'
