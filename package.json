@@ -1,0 +1,28 @@
+{
+  "name": "fast-sound",
+  "version": "1.0.0",
+  "description": "A collection of emscripten-compiled libraries: opus and speexdsp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kukunin/fast-sound.git"
+  },
+  "keywords": [
+    "emscripten",
+    "libopus",
+    "opus",
+    "resampler",
+    "native",
+    "sound",
+    "audio"
+  ],
+  "author": "Sergiy Kukunin <sergey.kukunin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kukunin/fast-sound/issues"
+  },
+  "homepage": "https://github.com/Kukunin/fast-sound#readme"
+}
