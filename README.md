@@ -1,6 +1,9 @@
 # fast-sound
 
-A collection of emscripten-compiled libraries: opus and speexdsp
+A collection of emscripten-compiled libraries: opus and speexdsp.
+It's a low-level library, exposing the native
+[Emscripten](https://github.com/kripken/emscripten) interface.
+You should be familiar with it.
 
 
 ### Motivation:
@@ -11,7 +14,7 @@ A collection of emscripten-compiled libraries: opus and speexdsp
 * Enable WebAssembly support by default with a fallback to ASM.js
 * Usage of the same assets in different projects for better caching
 * Provide an ability to load either production or development build
-* Ability to fork the library and use it as a depepndency from a git repo
+* Ability to fork the library and use it as a dependency from a git repo
 
 ### Install
 
@@ -27,16 +30,41 @@ yarn add fast-sound
 
 ### Usage
 
+The library exposes the same interface as Emscripten
+[MODULARIZE](https://github.com/kripken/emscripten/blob/incoming/src/settings.js#L790) does.
+
 Use
 
-```
+```js
 // require production build
 const FastSound = requrie('fast-sound')
+
+FastSound({}).then(function(lib) {
+  const errReference = lib._malloc( 4 );
+  const decoder = lib._opus_decoder_create( decoderSampleRate, numberOfChannels, errReference );
+  lib._free( errReference );
+});
 ```
 
-or
+The library should load asynchroniously either WASM binary file or ASM.js fallback.
+By default, it will look at the same folder as the original script. You can pass
+`locateFile` function to correctly resolve paths:
 
+```js
+function locateFile(file) {
+  return "/assemblies/" + file;
+}
+
+FastSound({locateFile: locateFile}).then(function(lib) {
+   // ...
+});
 ```
+
+All options passed to `FastSound` goes to Emscripten without a change.
+
+For development build require the library as further:
+
+```js
 // require development build
 const FastSound = requrie('fast-sound/unminified')
 ```
@@ -46,8 +74,8 @@ const FastSound = requrie('fast-sound/unminified')
 There is both production and development builds:
 
 * Compiled with emscripten 1.38.13-64bit (released 11th of Oct 2018)
-* encoder/decoder from (https://opus-codec.org/)[`opus`] v1.3 (released 18th of Oct 2018)
-* a resampler from (https://speex.org/)[`speexdsp`] (git 6b539e0, 15th of Sep 2018)
+* encoder/decoder from [`opus`](https://opus-codec.org/) v1.3 (released 18th of Oct 2018)
+* a resampler from [`speexdsp`](https://speex.org/) (git 6b539e0, 15th of Sep 2018)
 
 ### Credits
 
