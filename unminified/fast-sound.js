@@ -27,7 +27,9 @@ var Module = typeof FastSound !== 'undefined' ? FastSound : {};
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// {{PRE_JSES}}
+console.log('pre');
+
+
 
 // Sometimes an existing Module object exists with properties
 // meant to overwrite the default module functionality. Here
@@ -1392,9 +1394,9 @@ function integrateWasmJS() {
 
   var method = 'native-wasm';
 
-  var wasmTextFile = 'whole.wast';
-  var wasmBinaryFile = 'whole.wasm';
-  var asmjsCodeFile = 'whole.temp.asm.js';
+  var wasmTextFile = 'fast-sound.wast';
+  var wasmBinaryFile = 'fast-sound.wasm';
+  var asmjsCodeFile = 'fast-sound.temp.asm.js';
 
   if (!isDataURI(wasmTextFile)) {
     wasmTextFile = locateFile(wasmTextFile);
