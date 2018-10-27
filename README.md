@@ -46,7 +46,7 @@ FastSound({}).then(function(lib) {
 });
 ```
 
-The library should load asynchroniously either WASM binary file or ASM.js fallback.
+The library loads asynchroniously either WASM binary file or ASM.js fallback.
 By default, it will look at the same folder as the original script. You can pass
 `locateFile` function to correctly resolve paths:
 
@@ -61,6 +61,15 @@ FastSound({locateFile: locateFile}).then(function(lib) {
 ```
 
 All options passed to `FastSound` goes to Emscripten without a change.
+The only difference is `method` option, which can be `wasm` either `asm.js`.
+It forces the selected method:
+
+```js
+// Loads ASM.js despite the WebAssembly browser support
+FastSound({method: 'asm.js'}).then(function(lib) {
+   // ...
+});
+```
 
 For development build require the library as further:
 
