@@ -24,29 +24,17 @@ module.exports = function(wasmObject, asmjsFilename) {
         asmjsFilename = options['locateFile'](asmjsFilename);
       }
 
-      // For some reason native Promise doesn't resolve
-      const promise = {
-        then: function(func) {
-          if(promise.value) {
-            func(promise.value);
-          } else {
-            promise.callback = func;
-          }
-        },
-        resolve: function(value) {
-          promise.value = value;
-          if(promise.callback) {
-            promise.callback(value);
-          }
-        }
-      };
-
-      readAsync(asmjsFilename, function(script) {
-        const exports = {};
-        var module = eval(script);
-        module(options).then((lib) => promise.resolve(lib));
+      return new Promise(function(resolve, reject) {
+        readAsync(asmjsFilename, function(script) {
+          const exports = {};
+          var module = eval(script);
+          module(options).then(function(lib) {
+            // to avoid infinite resolving loop
+            lib.then = undefined;
+            resolve(lib);
+          });
+        });
       });
-      return promise;
     }
   };
 };
