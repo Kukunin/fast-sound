@@ -1,6 +1,6 @@
 {
   "name": "fast-sound",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of emscripten-compiled libraries: opus and speexdsp",
   "main": "dist/index.js",
   "scripts": {

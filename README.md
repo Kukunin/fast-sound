@@ -82,9 +82,9 @@ const FastSound = requrie('fast-sound/unminified')
 
 There is both production and development builds:
 
-* Compiled with emscripten 1.38.13-64bit (released 11th of Oct 2018)
-* encoder/decoder from [`opus`](https://opus-codec.org/) v1.3 (released 18th of Oct 2018)
-* a resampler from [`speexdsp`](https://speex.org/) (git 6b539e0, 15th of Sep 2018)
+* Compiled with emscripten 1.39.18-fastcomp (released 13th of Jun 2020)
+* encoder/decoder from [`opus`](https://opus-codec.org/) [v1.3.1](https://github.com/xiph/opus/releases/tag/v1.3.1) (released 13th of Apr 2019)
+* a resampler from [`speexdsp`](https://speex.org/) [v1.2.0](https://github.com/xiph/speexdsp/releases/tag/SpeexDSP-1.2.0) (released 29th of May 2019)
 
 ### Credits
 
